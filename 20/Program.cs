@@ -29,7 +29,7 @@ namespace _20
                     b.menu(n, p);
                 }
                 else
-                System.Console.WriteLine("--------------- Name Bank Or Password Not valid ----------------");
+                    System.Console.WriteLine("--------------- Name Bank Or Password Not valid ----------------");
                 System.Console.WriteLine();
             } while (c);
         }
@@ -40,7 +40,11 @@ namespace _20
         public string pass;
         public string NameBank;
         public string shomareHesab;
+        public string TypeTrakonesh;
+        public int MablaghTarkonesh;
+        public DateTime Date;
         static public List<User> user1 = new List<User>();
+        static public List<User> ListLastgardesh = new List<User>();
 
         public void inputUser()
         {
@@ -68,6 +72,7 @@ namespace _20
         void Mojodi(string n, string p);
         void BardashatHesab(string n, string p);
         void KartBeKart(string n, string p);
+        void printLastGardesh();
 
     }
     class Bank : rules
@@ -89,23 +94,26 @@ namespace _20
             string check;
             do
             {
-                System.Console.WriteLine("_____________________________________________________________________________________________");
+                System.Console.WriteLine("_________________________________________________________________________________________________________________________");
                 System.Console.WriteLine();
-                System.Console.WriteLine("            | Mojoodi |            | Bardasht |            | Kart Be Kart | ");
+                System.Console.WriteLine("         | Mojoodi = 1 |            | Bardasht = 2  |            | Kart Be Kart = 3 |         | 10 gardesh Akhar = 4 | ");
                 System.Console.WriteLine();
                 System.Console.Write("ENTER : ");
                 string m = Console.ReadLine().ToLower();
                 System.Console.WriteLine();
                 switch (m)
                 {
-                    case "mojoodi":
+                    case "mojoodi":case "1":
                         Mojodi(n, p);
                         break;
-                    case "bardasht":
+                    case "bardasht":case "2":
                         BardashatHesab(n, p);
                         break;
-                    case "kart be kart":
+                    case "kart be kart":case "3":
                         KartBeKart(n, p);
+                        break;
+                    case "10 gardesh":case "4":
+                        printLastGardesh();
                         break;
                     default:
                         System.Console.WriteLine("************* not availble *************");
@@ -114,13 +122,13 @@ namespace _20
                 System.Console.WriteLine();
                 System.Console.Write("Darkhast Digari Darid ? ( y - n )  : ");
                 check = Console.ReadLine();
-                
-                
+
+
             } while (check == "y");
-            if (check=="n")
-                {
-                    System.Environment.Exit(0);
-                }
+            if (check == "n")
+            {
+                System.Environment.Exit(0);
+            }
 
 
         }
@@ -136,7 +144,13 @@ namespace _20
                     System.Console.WriteLine(" Car Number : {0} \n Mojoodi : {1}", item.shomareHesab, item.mojodi.ToString("0,0"));
                     System.Console.WriteLine();
                     System.Console.WriteLine("================================================================================================");
-                    
+
+                    User last = new User();
+                    last.TypeTrakonesh = "  Mojoodi          ";
+                    last.MablaghTarkonesh = 600;
+                    last.Date = DateTime.Now;
+                    last.NameBank = n;
+                    User.ListLastgardesh.Add(last);
                 }
             }
         }
@@ -159,7 +173,7 @@ namespace _20
                         System.Console.WriteLine(" =============> Money Khod Ra Bardarid <=========== ");
                         System.Console.WriteLine();
                         System.Console.Write("Mande Mujoodi Mikhahid?  ( y - n ) :  ");
-                        System.Console.WriteLine();
+                        
                         string answer = Console.ReadLine();
                         if (answer == "y")
                         {
@@ -167,10 +181,18 @@ namespace _20
                             System.Console.WriteLine();
                             System.Console.WriteLine("================================================================================================");
                         }
+
+                        User last = new User();
+                        last.TypeTrakonesh = "  Bardasht         ";
+                        last.MablaghTarkonesh = pool;
+                        last.Date = DateTime.Now;
+                        last.NameBank = n;
+                        User.ListLastgardesh.Add(last);
                     }
-                }
+                }                                              
                 else
                 {
+                    
                     System.Console.WriteLine();
                     System.Console.WriteLine("==============|| Mojoodi Nadarid ||=============");
                     System.Console.WriteLine();
@@ -199,10 +221,18 @@ namespace _20
                         item.mojodi -= pool;
                         System.Console.WriteLine();
                         System.Console.WriteLine("            -----------  Kart Be Kart ba Movafaghiat anjam shod  ----------");
-                        System.Console.WriteLine(); 
-                        System.Console.WriteLine("      Az Card ---> {0} \n      Be Card ---> {1}\n      Mablagh ---> {2}\n\n      Mande Heab ---> {3}", item.shomareHesab, m,pool.ToString("0,0") ,item.mojodi.ToString("0,0"));
+                        System.Console.WriteLine();
+                        System.Console.WriteLine("      Az Card ---> {0} \n      Be Card ---> {1}\n      Mablagh ---> {2}\n\n      Mande Heab ---> {3}", item.shomareHesab, m, pool.ToString("0,0"), item.mojodi.ToString("0,0"));
                         System.Console.WriteLine();
                         System.Console.WriteLine("================================================================================================");
+
+
+                        User last = new User();
+                        last.TypeTrakonesh = "  Kart Be Kart     ";
+                        last.MablaghTarkonesh = pool;
+                        last.Date = DateTime.Now;
+                        last.NameBank = n;
+                        User.ListLastgardesh.Add(last);
                     }
                 }
                 else
@@ -215,6 +245,19 @@ namespace _20
 
         }
 
+        public void printLastGardesh()
+        {
+            System.Console.WriteLine();
+            System.Console.WriteLine("====================================|| 10 Gardesh Akhar ||=================================");
+            System.Console.WriteLine();
+            
+            foreach (var item in User.ListLastgardesh)
+            {
+            System.Console.WriteLine($"| {item.Date}  |        |  {item.NameBank}  |        |{item.TypeTrakonesh}|        |  {item.MablaghTarkonesh.ToString("0,0")}                    ");
+
+            }
+        }
     }
+
 
 }

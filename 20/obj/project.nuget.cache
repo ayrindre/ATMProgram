@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mnhA+ZXVtA6Oe5ZlPAb6Sxld7gr3tVmSitO5io1PlY2VBjbDC/YNpepjPl4YoMRbge1B+oeF2YFu+MNqoAVjZQ==",
+  "dgSpecHash": "pqIKz6zZe1UXvRKwduQ02eya2aK6r79MlUiCDhiOw75OKcxhcNyrnix6diYC8yS48QNQ4yR/9Ld+oIaEXvMiig==",
   "success": true,
   "projectFilePath": "C:\\Users\\Farshad\\Desktop\\C#-samples\\20\\20.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Farshad\\.nuget\\packages\\kavenegar\\1.2.4\\kavenegar.1.2.4.nupkg.sha512",
+    "C:\\Users\\Farshad\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

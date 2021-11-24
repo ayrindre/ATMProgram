@@ -6,4 +6,8 @@
     <RootNamespace>_20</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="kavenegar" Version="1.2.4" />
+  </ItemGroup>
+
 </Project>

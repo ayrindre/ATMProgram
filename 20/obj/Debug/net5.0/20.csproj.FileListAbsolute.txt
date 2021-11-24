@@ -14,3 +14,5 @@ C:\Users\Farshad\Desktop\C#-samples\20\obj\Debug\net5.0\20.dll
 C:\Users\Farshad\Desktop\C#-samples\20\obj\Debug\net5.0\ref\20.dll
 C:\Users\Farshad\Desktop\C#-samples\20\obj\Debug\net5.0\20.pdb
 C:\Users\Farshad\Desktop\C#-samples\20\obj\Debug\net5.0\20.genruntimeconfig.cache
+C:\Users\Farshad\Desktop\C#-samples\20\bin\Debug\net5.0\Kavenegar.dll
+C:\Users\Farshad\Desktop\C#-samples\20\bin\Debug\net5.0\Newtonsoft.Json.dll
